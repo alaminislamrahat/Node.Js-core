@@ -8,10 +8,15 @@ const fs = require('fs')
 //    const result = fs.readFileSync("./contact.txt","utf-8");
 //    console.log(result)
 
-fs.readFile("./contact.txt","utf-8",(error,result)=>{
-    if(error){
-        console.log(error)
-    }else{
-        console.log(result)
-    }
-})
+// fs.readFile("./contact.txt","utf-8",(error,result)=>{
+//     if(error){
+//         console.log(error)
+//     }else{
+//         console.log(result)
+//     }
+// })
+
+
+// fs.appendFileSync("./test.txt",`hey there\n`)
+const os = require("os")
+console.log(os.cpus().length)
