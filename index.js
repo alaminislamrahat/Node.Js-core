@@ -1,29 +1,24 @@
 // ===== Dependencies =====
 const express = require("express");
 
-
 const { connectMongoDb } = require('./connection')
+const userRouter = require("./routes/user")
 
 const app = express();
 
 //connection
 
 connectMongoDb("mongodb+srv://rahatPractice:9Bw57bQUNH.M_Mx@cluster0.3jkraio.mongodb.net/rahatPractice?retryWrites=true&w=majority&appName=Cluster0")
+.then(()=> console.log("mongodb connected!!"))
 
 
-const userRouter = require("./routes/user")
+
 
 // ===== Middleware =====
 app.use(express.json()); // for JSON requests
 app.use(express.urlencoded({ extended: true })); // for x-www-form-urlencoded requests
 
-// ===== MongoDB Connection =====
 
-
-// ===== Schema =====
-
-
-// ===== Model =====
 
 
 // ===== Routes =====
@@ -35,7 +30,7 @@ app.get("/", (req, res) => {
 
 //routes
 
-app.use("/user", userRouter)
+app.use("/api/user", userRouter)
 
 
 // ===== Start Server =====
